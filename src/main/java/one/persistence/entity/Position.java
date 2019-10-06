@@ -51,11 +51,4 @@ public class Position {
         return Objects.hash(id, position);
     }
 
-    @Override
-    public String toString() {
-        return "Position{" +
-                "id=" + id +
-                ", position='" + position + '\'' +
-                '}';
-    }
 }

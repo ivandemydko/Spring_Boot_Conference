@@ -1,8 +1,8 @@
 package one.persistence.entity;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
+
 @Entity
 @Table(name = "address")
 public class Address {
@@ -88,17 +88,6 @@ public class Address {
     @Override
     public int hashCode() {
         return Objects.hash(id, city, street, building, room);
-    }
-
-    @Override
-    public String toString() {
-        return "Address{" +
-                "id=" + id +
-                ", city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                ", building='" + building + '\'' +
-                ", room='" + room + '\'' +
-                '}';
     }
 }
 

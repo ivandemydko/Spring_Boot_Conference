@@ -53,13 +53,6 @@ public class Speaker extends User {
         return Objects.hash(super.hashCode(), rating);
     }
 
-    @Override
-    public String toString() {
-        return "Speaker{" +
-                "rating=" + rating +
-                ", bonuses=" + bonuses +
-                "} " + super.toString();
-    }
 }
 
 

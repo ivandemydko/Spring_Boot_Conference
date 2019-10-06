@@ -50,12 +50,4 @@ public class Language {
     public int hashCode() {
         return Objects.hash(id, language);
     }
-
-    @Override
-    public String toString() {
-        return "Language{" +
-                "id=" + id +
-                ", language='" + language + '\'' +
-                '}';
-    }
 }

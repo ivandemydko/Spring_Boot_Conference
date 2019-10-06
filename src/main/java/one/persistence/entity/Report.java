@@ -21,7 +21,6 @@ public class Report {
     @JoinColumn(name = "speaker_id")
     @ManyToOne(fetch = FetchType.EAGER)
     private Speaker speaker;
-    //    @ManyToMany(mappedBy = "reportList",fetch = FetchType.EAGER)
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "registeredlist",
             joinColumns = @JoinColumn(name = "report_id"),
@@ -145,18 +144,6 @@ public class Report {
         return Objects.hash(id, name, address, date, time, speaker, isUserRegistered);
     }
 
-    @Override
-    public String toString() {
-        return "Report{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address=" + address +
-                ", date=" + date +
-                ", time=" + time +
-                ", speaker=" + speaker +
-                ", isUserRegistered=" + isUserRegistered +
-                '}';
-    }
 }
 
 

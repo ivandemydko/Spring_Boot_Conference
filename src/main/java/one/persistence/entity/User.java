@@ -2,7 +2,6 @@ package one.persistence.entity;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -31,10 +30,6 @@ public class User {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Language language;
     @ManyToMany(mappedBy = "userList",fetch = FetchType.EAGER)
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(name = "registeredlist",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "report_id"))
     private Set<Report> reportList = new HashSet<>();
 
     public User(String name, String surname, String email, String password, Position position, Language language) {
@@ -134,19 +129,6 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, surname, email, position, language);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", position='" + position + '\'' +
-                ", language='" + language + '\'' +
-                '}';
     }
 }
 
