@@ -12,7 +12,6 @@ import java.util.ResourceBundle;
 @Service
 public class MessageManager {
     private Locale locale = new Locale("en", "US");
-    ;
     private static ResourceBundle resourceBundle;
 
     public MessageManager() {

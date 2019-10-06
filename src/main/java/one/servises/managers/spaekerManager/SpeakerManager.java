@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-///**
-// * This class encapsulated some methods from {@link SpeakerDao}
-// */
+/**
+ * This class is used for execute some logic for {@link Speaker}
+ */
 @Service
 public class SpeakerManager {
 

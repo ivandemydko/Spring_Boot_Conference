@@ -65,7 +65,6 @@ public class MailThread extends Thread {
         try {
             Transport.send(message);
         } catch (MessagingException e) {
-            e.printStackTrace();
             logger.error("Send error" + e);
         }
     }

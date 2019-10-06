@@ -14,7 +14,6 @@ import java.util.regex.Pattern;
 public class AccessFilter implements Filter {
     private Logger logger = Logger.getLogger(AccessFilter.class);
 
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }

@@ -1,7 +1,7 @@
 package one.servises.managers.userManager;
 
 
-import one.persistence.data.IPosition;
+
 import one.persistence.data.IReport;
 import one.persistence.data.IUser;
 import one.persistence.entity.Position;
@@ -17,9 +17,9 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 
-///**
-// * This class encapsulated some methods from {@link UserDao}
-// */
+/**
+ * This class is used for execute some logic for {@link User}
+ */
 @Service
 public class UserManager {
     private Logger logger = Logger.getLogger(UserManager.class);
@@ -81,7 +81,9 @@ public class UserManager {
         return "success";
     }
 
-
+    /**
+     * Checks if {@link User} registered for certain {@link Report}
+     */
     public void checkUserRegistration(User user, Page<Report> pages) {
         for (Report r : pages) {
             for (Report report : user.getReportList()) {

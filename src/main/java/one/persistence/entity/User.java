@@ -13,7 +13,6 @@ import java.util.Set;
         discriminatorType = DiscriminatorType.STRING
 )
 @DiscriminatorValue(value = "U")
-
 public class User {
 
     @Id
@@ -24,7 +23,7 @@ public class User {
     private String email;
     private String password;
     @JoinColumn(name = "position")
-    @ManyToOne(fetch = FetchType.EAGER)   //todo
+    @ManyToOne(fetch = FetchType.EAGER)
     private Position position;
     @JoinColumn(name = "language")
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
