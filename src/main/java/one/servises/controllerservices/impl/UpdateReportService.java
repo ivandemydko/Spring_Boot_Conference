@@ -14,7 +14,6 @@ import one.servises.managers.parameterManager.ParameterManager;
 import one.servises.managers.spaekerManager.SpeakerManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 
@@ -38,7 +37,6 @@ public class UpdateReportService implements ControllerService {
     IAddress iAddress;
 
     private Logger logger = Logger.getLogger(UpdateReportService.class);
-    private String index;
     private String theme;
     private String sDate;
     private String sTime;
@@ -47,24 +45,7 @@ public class UpdateReportService implements ControllerService {
     private String building;
     private String room;
     private String email;
-    private Page<Report> page;
     private Report report;
-
-    public UpdateReportService(String index, String theme,
-                               String sDate, String sTime, String city,
-                               String street, String building, String room,
-                               String email, Page<Report> page) {
-        this.index = index;
-        this.theme = theme;
-        this.sDate = sDate;
-        this.sTime = sTime;
-        this.city = city;
-        this.street = street;
-        this.building = building;
-        this.room = room;
-        this.email = email;
-        this.page = page;
-    }
 
     public UpdateReportService() {
     }
@@ -75,11 +56,7 @@ public class UpdateReportService implements ControllerService {
             logger.info("No action done");
             return "noActionDone";
         }
-
         Report oldReport = report;
-
-        System.out.println("oldReport = " + oldReport);
-
         Speaker newSpeaker;
         if (!email.isEmpty()) {
             newSpeaker = speakerManager.getSpeakerByEmail(email);
@@ -94,8 +71,6 @@ public class UpdateReportService implements ControllerService {
         Speaker oldSpeaker = oldReport.getSpeaker();
         Address oldAddress = oldReport.getAddress();
 
-        System.out.println("oldAddress = " + oldAddress);
-
         String newTheme = theme.isEmpty() ? oldReport.getName() : theme;
         String newCity = city.isEmpty() ? oldAddress.getCity() : city;
         String newStreet = street.isEmpty() ? oldAddress.getStreet() : street;
@@ -104,10 +79,6 @@ public class UpdateReportService implements ControllerService {
         Address newAddress = new Address(newCity, newStreet, newBuilding, newRoom);
         Date date = sDate.isEmpty() ? dateTimeManager.fromUtilDateToSqlDate(oldReport.getDate()) : dateTimeManager.fromStringToSqlDate(sDate);
         Time time = sTime.isEmpty() ? oldReport.getTime() : dateTimeManager.fromStringToTime(sTime);
-
-
-
-
 
         if (new java.util.Date().getTime() > date.getTime()) {
             logger.info("The date was imputed incorrectly");
@@ -161,11 +132,6 @@ public class UpdateReportService implements ControllerService {
         return "successfulChanges";
     }
 
-
-    public void setIndex(String index) {
-        this.index = index;
-    }
-
     public void setTheme(String theme) {
         this.theme = theme;
     }
@@ -196,10 +162,6 @@ public class UpdateReportService implements ControllerService {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setPage(Page<Report> page) {
-        this.page = page;
     }
 
     public void setReport(Report report) {

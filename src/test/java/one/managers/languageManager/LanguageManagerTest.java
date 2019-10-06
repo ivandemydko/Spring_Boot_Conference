@@ -1,4 +1,4 @@
-package languageManager;
+package one.managers.languageManager;
 
 
 import one.persistence.entity.Language;

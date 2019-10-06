@@ -1,4 +1,4 @@
-package speakerManager;
+package one.managers.speakerManager;
 
 
 import one.persistence.entity.Speaker;
@@ -7,7 +7,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class SpeakerManagerTest {
 

@@ -1,4 +1,4 @@
-package dateTimeManager;
+package one.managers.dateTimeManager;
 
 
 import one.servises.managers.dateTimeManager.DateTimeManager;

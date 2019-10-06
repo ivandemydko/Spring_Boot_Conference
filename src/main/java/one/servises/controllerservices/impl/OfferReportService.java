@@ -44,7 +44,7 @@ public class OfferReportService implements ControllerService {
             return "errorTheme";
         }
 
-//        Speaker speaker = speakerManager.getSpeakerById(user.getId());
+//        Speaker speaker = one.managers.speakerManager.getSpeakerById(user.getId());
         Report report = new Report();
         report.setSpeaker((Speaker) user);
         report.setName(theme);

@@ -1,4 +1,4 @@
-package parameterManager;
+package one.managers.parameterManager;
 
 
 import one.persistence.entity.Address;

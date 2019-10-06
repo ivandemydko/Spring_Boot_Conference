@@ -65,7 +65,7 @@ public class LanguageManager {
 
     public Language getLanguage(Locale locale) {
         String language = getStringLanguage(locale);
-        System.out.println("languageManager = " + language);
+        System.out.println("one.managers.languageManager = " + language);
         return iLanguage.getLanguage(language);
     }
 
