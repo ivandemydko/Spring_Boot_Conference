@@ -14,6 +14,7 @@ import one.servises.managers.parameterManager.ParameterManager;
 import one.servises.managers.spaekerManager.SpeakerManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 
@@ -171,4 +172,5 @@ public class UpdateReportService implements ControllerService {
     public Report getReport() {
         return report;
     }
+
 }

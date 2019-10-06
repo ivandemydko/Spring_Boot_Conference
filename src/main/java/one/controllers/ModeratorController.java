@@ -75,10 +75,8 @@ public class ModeratorController {
                                @RequestParam(name = "room", required = false) String room,
                                @RequestParam(name = "speakerEmail", required = false) String speakerEmail,
                                Model model, HttpSession session) {
-        Page<Report> page = (Page<Report>) session.getAttribute("futureReports");
         Report report = (Report) session.getAttribute("report");
         updateReportService.setReport(report);
-        updateReportService.setPage(page);
         updateReportService.setTheme(theme);
         updateReportService.setDate(date);
         updateReportService.setTime(time);
