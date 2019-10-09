@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ua">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{label.title}"></title>
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
@@ -11,20 +11,20 @@
 <div class="center">
     <div class="register">
         <form method="post" action="/welcome/login">
-            <p><input type="email" name="email" placeholder="Email" size="22" required/></p>
+            <p><input type="email" name="email" placeholder="Email"
+                      pattern="[a-zA-Z0-9_%!#$&'*+-/=?^`{|}~]+@[a-z0-9-_]+\.[a-z]{2,}[\.a-z]{0,}"
+                      size="22" required/></p>
             <p><input type="password" name="password" th:placeholder="#{label.password}"
                       size="22"
                       pattern="[A-Za-zА-Яа-яЁёІіЄєЇї0-9]{5,}" required/></p>
             <p><input type="submit" th:value="#{label.signIn}"/></p>
         </form>
     </div>
-
     <p th:switch="${message}">
         <span th:case="'errorEmailForm'"> <span th:text="#{errorEmailForm}"></span></span>
         <span th:case="'errorPassword'"> <span th:text="#{errorPassword}"></span></span>
         <span th:case="'errorUserNotExists'"> <span th:text="#{errorUserNotExists}"></span></span>
     </p>
-
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ua">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{label.title}"></title>
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
@@ -14,13 +14,10 @@
         <div class="offeredReports">
             <p>id:<span th:text="${report.id}"></span></p>
             <p th:text="#{label.theme(${report.name})}"></p>
-
             <p><span th:utext="#{label.static.speaker}"></span>:
                 <span th:if="${report.speaker!= null}" th:text="${report.speaker.name}"></span>
                 <span th:if="${report.speaker!= null}" th:text="${report.speaker.surname}"></span>
             </p>
-
-<!--            <p th:if="${report.speaker!= null}" th:text="#{label.speaker(${report.speaker.name},${report.speaker.surname})}"></p>-->
             <form method="get" action="/moderator/offeredReport">
                 <input type="hidden" name="index" th:value="${iterStat.index}">
                 <input type="submit" th:value="#{label.makeChangesAndConfirm}">
@@ -32,8 +29,6 @@
         </div>
     </tr>
 </div>
-
-
 <div class="blockBottom">
     <tr th:each="button,iterStat : ${session.offeredButtons}" th:class="${iterStat.index}? 'index'">
         <form class="buttons" method="get" action="/moderator/offeredReports">

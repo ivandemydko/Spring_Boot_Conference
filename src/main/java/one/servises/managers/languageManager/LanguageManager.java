@@ -65,7 +65,6 @@ public class LanguageManager {
 
     public Language getLanguage(Locale locale) {
         String language = getStringLanguage(locale);
-        System.out.println("one.managers.languageManager = " + language);
         return iLanguage.getLanguage(language);
     }
 
@@ -76,7 +75,7 @@ public class LanguageManager {
                 return "EN";
             case "ua":
                 return "UA";
-            case "ru":
+            case "ru_RU":
                 return "RU";
         }
         return null;

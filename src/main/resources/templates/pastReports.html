@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ua">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{label.title}"></title>
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
@@ -39,7 +39,6 @@
         </div>
     </tr>
 </div>
-
 <div class="blockBottom">
     <tr th:each="button,iterStat : ${session.pastButtons}" th:class="${iterStat.index}? 'index'">
         <form class="buttons" method="get" action="/cabinet/pastReports">
@@ -55,8 +54,6 @@
         <span th:case="'errorNumber'"> <span th:text="#{errorNumber}"></span></span>
     </p>
 </div>
-
-
 <div class="elements">
     <span th:utext="#{label.amountElementsOnPage}"></span>
     <form method="get" action="/cabinet/pastReports">

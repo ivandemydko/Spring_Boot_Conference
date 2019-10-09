@@ -7,7 +7,6 @@
 <body>
 <div th:fragment="copy">
 <div class="header">
-
     <div class="headerLeft" th:if="${session.user!=null}">
         <span class="headerLeft" th:utext="#{label.enterAs(${session.user.name},${session.user.surname})}"></span>
         <span th:if="${session.user.position.position=='Speaker'}">
@@ -22,7 +21,6 @@
         <span><input type="submit" th:value="#{label.exit}"></span>
     </form>
     </div>
-
     <form class="headerRight" method="get" action="/welcome/changeLanguage">
         <input type="hidden" name="requestURI" th:value="${#request.getRequestURI()}">
         <span>

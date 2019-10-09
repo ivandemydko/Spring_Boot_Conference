@@ -112,9 +112,6 @@ public class UpdateReportService implements ControllerService {
         newReport.setTime(time);
         newReport.setUserList(oldReport.getUserList());
 
-        System.out.println("newAddress = " + newAddress);
-        System.out.println("newReport = " + newReport);
-
         report = iReport.saveReport(newReport);
         Set<User> userList = report.getUserList();
 

@@ -2,20 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ua">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{label.title}"></title>
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
-    <!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
-
-    <!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
-    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
-
 </head>
 <body>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
-<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
 <div th:insert="header :: copy"></div>
 <h2 align="center" th:utext="#{label.futureReports}"></h2>
 <div class="center">
@@ -29,7 +19,6 @@
             <p th:text="#{label.street(${report.address.street})}"></p>
             <p th:text="#{label.building(${report.address.building})}"></p>
             <p th:text="#{label.room(${report.address.room})}"></p>
-<!--            <p th:if="${report.speaker!= null}" th:text="#{label.speaker(${report.speaker.name},${report.speaker.surname})}"></p>-->
             <p><span th:utext="#{label.static.speaker}"></span>:
                 <span th:if="${report.speaker!= null}" th:text="${report.speaker.name}"></span>
                 <span th:if="${report.speaker!= null}" th:text="${report.speaker.surname}"></span>
@@ -37,7 +26,6 @@
             <p th:text="#{label.registered(${report.userList.size()})}"></p>
             <span th:switch="${session.user.position.position}">
                 <span th:case="'Moderator'">
-
                     <form method="get" action="/moderator/report">
                         <input type="hidden" name="index" th:value="${iterStat.index}">
                         <input type="submit" th:value="#{label.change}">
@@ -62,8 +50,6 @@
         </div>
     </tr>
 </div>
-
-
 <div class="blockBottom">
     <tr th:each="button,iterStat : ${session.futureButtons}" th:class="${iterStat.index}? 'index'">
         <form class="buttons" method="get" action="/cabinet/futureReports">
@@ -75,7 +61,6 @@
         </form>
     </tr>
 </div>
-
 <div class="elements">
     <span th:utext="#{label.amountElementsOnPage}"></span>
     <form method="get" action="/cabinet/futureReports">

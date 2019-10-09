@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ua">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{label.title}"></title>
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
@@ -14,17 +14,14 @@
             <p><input type="submit" th:value="#{label.futureReports}"/></p>
         </form>
     </div>
-
-
     <span th:switch="${session.user.position.position}">
                 <span th:case="'Admin'">
-
-            <div class="admin">
+                    <div class="admin">
                 <p th:utext="#{label.assignToPosition}"></p>
                 <form method="post" action="/admin/assignToPosition">
                     <p><input type="email" name="email" required
                               th:placeholder="#{label.userEmail}" size="25"
-                              pattern="[a-z0-9_%+-]+@[a-z0-9_]+\.[a-z]{2,}[\.a-z]{0,}"/></p>
+                              pattern="[a-zA-Z0-9_%!#$&'*+-/=?^`{|}~]+@[a-z0-9-_]+\.[a-z]{2,}[\.a-z]{0,}"/></p>
                     <p>
                         <select size="1" name="userType">
                             <option value="Moderator" th:utext="#{label.moderator}"></option>
@@ -41,7 +38,7 @@
                 <form method="post" action="/admin/addSpeakerRating">
                     <p><input type="email" name="email" required
                               th:placeholder="#{label.speakerEmail}" size="25"
-                              pattern="[a-z0-9_%+-]+@[a-z0-9_]+\.[a-z]{2,}[\.a-z]{0,}"/></p>
+                              pattern="[a-zA-Z0-9_%!#$&'*+-/=?^`{|}~]+@[a-z0-9-_]+\.[a-z]{2,}[\.a-z]{0,}"/></p>
                     <p>
                         <select size="1" name="rating">
                             <option value="1">1</option>
@@ -64,20 +61,20 @@
                 <form method="post" action="/admin/addBonuses">
                     <p><input type="email" name="email" required
                               th:placeholder="#{label.speakerEmail}" size="25"
-                              pattern="[a-z0-9_%+-]+@[a-z0-9_]+\.[a-z]{2,}[\.a-z]{0,}"/></p>
+                              pattern="[a-zA-Z0-9_%!#$&'*+-/=?^`{|}~]+@[a-z0-9-_]+\.[a-z]{2,}[\.a-z]{0,}"/></p>
                     <p><input type="text" th:placeholder="#{label.amountOfBonuses}" required
                               name="bonuses" pattern="[0-9]{1,}"/></p>
                     <input type="submit" th:value="#{label.addBonuses}">
                 </form>
             </div>
                 </span>
-
-             <span th:case="'Moderator'">
+        <span th:case="'Moderator'">
                  <div class="block1">
                 <p th:utext="#{label.addReport}"></p>
                 <form method="post" action="/moderator/addReport">
-                    <p><span th:utext="#{label.static.date}"></span>: <input type="date" name="date" pattern="yyyy-MM-dd"
-                                                       required></p>
+                    <p><span th:utext="#{label.static.date}"></span>: <input type="date" name="date"
+                                                                             pattern="yyyy-MM-dd"
+                                                                             required></p>
                     <p><span th:utext="#{label.static.time}"></span>: <input type="time" name="time" required></p>
                     <p><textarea name="theme" th:placeholder="#{label.static.theme}" required></textarea></p>
                     <p><input type="text" name="city" size="30" pattern="[а-яА-Яa-zA-ZЇїЄєІі]{2,30}"
@@ -93,7 +90,7 @@
                               th:placeholder="#{label.static.room}" required/>
                     </p>
                     <p><input type="email" name="speakerEmail" size="30"
-                              pattern="[a-z0-9_%+-]+@[a-z0-9_]+\.[a-z]{2,}[\.a-z]{0,}"
+                              pattern="[a-zA-Z0-9_%!#$&'*+-/=?^`{|}~]+@[a-z0-9-_]+\.[a-z]{2,}[\.a-z]{0,}"
                               th:placeholder="#{label.choseSpeaker}" required/>
                     </p>
                     <p><input type="submit" th:value="#{label.addReport}"></p>
@@ -120,13 +117,12 @@
             <p><input type="submit" th:value="#{label.pastReports}"></p>
         </form>
     </div>
-
-
     <p th:switch="${message}">
         <span th:case="'errorEmailForm'"> <span th:text="#{errorEmailForm}"></span></span>
         <span th:case="'successfulChanges'"> <span th:text="#{successfulChanges}"></span></span>
         <span th:case="'errorSpeakerNotExists'"> <span th:text="#{errorSpeakerNotExists}"></span></span>
-        <span th:case="'errorPosition'"> <span th:text="#{errorPosition}"></span></span>
+        <span th:case="'errorPosition'"> <span th:text="#{errorPosition}"></span>
+            <span th:utext="${session.user.position.position}"></span></span>
         <span th:case="'errorNumber'"> <span th:text="#{errorNumber}"></span></span>
         <span th:case="'bonuses'"> <span th:text="#{bonuses}"></span></span>
         <span th:case="'errorAddress'"> <span th:text="#{errorAddress}"></span></span>
@@ -134,8 +130,8 @@
         <span th:case="'errorDate'"> <span th:text="#{errorDate}"></span></span>
         <span th:case="'noActionDone'"> <span th:text="#{noActionDone}"></span></span>
         <span th:case="'errorTheme'"> <span th:text="#{errorTheme}"></span></span>
+        <span th:case="'errorUser'"> <span th:text="#{errorUser}"></span></span>
     </p>
-
 </div>
 </body>
 </html>

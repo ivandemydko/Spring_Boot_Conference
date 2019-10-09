@@ -36,7 +36,6 @@ public class AddSpeakerRatingService implements ControllerService {
         }
 
         Speaker speaker = speakerManager.getSpeakerByEmail(email);
-
         if (speaker == null) {
             logger.info("Speaker with such " + email + " email does not exist");
             return "errorSpeakerNotExists";

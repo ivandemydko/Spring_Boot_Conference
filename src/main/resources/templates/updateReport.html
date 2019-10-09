@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ua">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{label.title}"></title>
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
@@ -50,7 +50,7 @@
             <p ><span th:if="${session.report.speaker!= null}" th:utext="#{label.speaker(${session.report.speaker.name},${session.report.speaker.surname})}"></span>
                 | <span th:utext="#{label.changeSpeaker}"></span>
                 <span> <input type="email" name="speakerEmail" th:placeholder="#{label.speakerEmail}"
-                              pattern="[a-z0-9_%+-]+@[a-z0-9_]+\.[a-z]{2,}[\.a-z]{0,}"></span>
+                              pattern="[a-zA-Z0-9_%!#$&'*+-/=?^`{|}~]+@[a-z0-9-_]+\.[a-z]{2,}[\.a-z]{0,}"></span>
             </p>
             <p><input type="submit" th:value="#{label.changeReport}"></p>
         </form>

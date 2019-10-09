@@ -42,7 +42,7 @@ public class AssignPositionService implements ControllerService {
         User user = userManager.getUserByEmail(email);
         if (user == null) {
             logger.info("User with email: " + email + " does not exist");
-            return "errorUserNotExists";
+            return "errorUser";
         }
 
         if (user.getPosition().getPosition().equals(userType)) {

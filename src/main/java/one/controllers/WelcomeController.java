@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.*;
@@ -25,7 +26,6 @@ public class WelcomeController {
     private RegisterService registerService;
     @Autowired
     private Internationalization inter;
-
 
 
     @RequestMapping("/mainPage")
@@ -83,7 +83,6 @@ public class WelcomeController {
                                  @RequestParam(name = "password") String password,
                                  @RequestParam(name = "userType") String position,
                                  HttpServletRequest request) {
-
         SessionLocaleResolver localeResolver = (SessionLocaleResolver) inter.localeResolver();
         Locale locale = localeResolver.resolveLocale(request);
         registerService.setName(name);

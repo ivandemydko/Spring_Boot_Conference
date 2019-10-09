@@ -71,7 +71,6 @@ public class RegisterService implements ControllerService {
             return "errorUserExists";
         }
         Language lang = languageManager.getLanguage(locale);
-//        Position pos = positionManager.getPosition(position);
         Position pos = iPosition.getPosition(position);
         if (position.equals("Speaker")) {
             user = new Speaker(name, surname, email, password, pos, lang, 0, 0);
