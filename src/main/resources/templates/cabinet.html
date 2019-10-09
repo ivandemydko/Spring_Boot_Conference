@@ -122,7 +122,7 @@
         <span th:case="'successfulChanges'"> <span th:text="#{successfulChanges}"></span></span>
         <span th:case="'errorSpeakerNotExists'"> <span th:text="#{errorSpeakerNotExists}"></span></span>
         <span th:case="'errorPosition'"> <span th:text="#{errorPosition}"></span>
-            <span th:utext="${session.user.position.position}"></span></span>
+            <span th:utext="${userType}"></span></span>
         <span th:case="'errorNumber'"> <span th:text="#{errorNumber}"></span></span>
         <span th:case="'bonuses'"> <span th:text="#{bonuses}"></span></span>
         <span th:case="'errorAddress'"> <span th:text="#{errorAddress}"></span></span>

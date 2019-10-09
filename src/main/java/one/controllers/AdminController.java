@@ -40,6 +40,7 @@ public class AdminController {
         positionService.setUserType(userType);
         String result = positionService.handle();
         session.setAttribute("user", positionService.getCurrentUser());
+        model.addAttribute("userType", userType);
         model.addAttribute("message", result);
         return "forward:/cabinet/mainPage";
     }
