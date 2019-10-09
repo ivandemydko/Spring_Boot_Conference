@@ -49,7 +49,7 @@ public class ParameterManager {
         if (email == null) {
             return false;
         }
-        Pattern p = Pattern.compile("([\\w%+-]+)@(\\w+\\.)(\\w+)(\\.\\w+)?");
+        Pattern p = Pattern.compile("([\\w%!#$&'*+-/=?^`{|}~]+)@([\\w-]+\\.)(\\w+)(\\.\\w+)?");
         Matcher m = p.matcher(email);
         return m.matches();
     }
